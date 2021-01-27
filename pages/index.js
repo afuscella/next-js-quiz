@@ -1,4 +1,6 @@
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
+
 import db from '../db.json';
 
 import Footer from '../src/components/Footer';
@@ -41,8 +43,7 @@ export default function Home() {
 
         <Footer />
       </QuizContainer>
-      <GitHubCorner projectUrl='https://github.com/afuscella' />
+      <GitHubCorner projectUrl="https://github.com/afuscella" />
     </QuizBackground>
   );
-
 }
