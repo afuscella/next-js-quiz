@@ -6,13 +6,6 @@ import GitHubCorner from '../src/components/GitHubCorner';
 import QuizBackground from '../src/components/QuizBackground';
 import Widget from '../src/components/Widget';
 
-// const BackgroundImage = styled.div`
-//   background-image: url(${db.bg});
-//   flex: 1;
-//   background-size: cover;
-//   background-position: center;
-//   `;
-
 const QuizContainer = styled.div`
   width: 100%;
   max-width: 350px;
