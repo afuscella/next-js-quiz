@@ -34,6 +34,19 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
+        <title>Quiz da Breja | Happy Hour Alura</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charSet="utf-8" />
+        <meta name="description" content="Acha que sabe tudo sobre cervejas, então venha se embebedar com estas perguntas marotissimas que reservei pra você." />
+
+        {/* Facebook Meta Tags */}
+        <meta property="og:url" content="https://bitter-brewing-quiz.afuscella.vercel.app/" key="ogurl" />
+        <meta property="og:type" content="website" key="ogtype" />
+        <meta property="og:title" content="Quiz do Breja | Happy Hour Alura" key="ogtitle" />
+        <meta property="og:description" content="Acha que sabe tudo sobre cervejas, então venha se embebedar com estas perguntas marotissimas que reservei pra você." key="ogdesc" />
+        <meta property="og:image" content="https://github.com/afuscella/bitter-brewing-quiz/blob/master/assets/thumbnail.gif?raw=true" key="ogimage" />
+
+        {/* Google Fonts */}
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet" />
       </Head>
