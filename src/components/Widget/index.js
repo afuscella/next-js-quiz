@@ -4,7 +4,7 @@ const Widget = styled.div`
   margin-top: 24px;
   margin-bottom: 24px;
   border: 2px solid ${({ theme }) => theme.colors.primary};
-  background-color: ${({ theme }) => theme.colors.mainBg};
+  background-color: ${({ theme }) => `${theme.colors.mainBg}40`};
   border-radius: 8px;
   overflow: hidden;
   h1, h2, h3 {
@@ -17,6 +17,9 @@ const Widget = styled.div`
     font-size: 14px;
     font-weight: 400;
     line-height: 1;
+  }
+  @media screen and (max-width: 500px) {
+    background-color: ${({ theme }) => theme.colors.mainBg};
   }
 `;
 
@@ -49,7 +52,7 @@ Widget.Topic = styled.a`
   outline: 0;
   text-decoration: none;
   color: ${({ theme }) => theme.colors.contrastText};
-  background-color: ${({ theme }) => `${theme.colors.secondary}40`};
+  background-color: ${({ theme }) => `${theme.colors.secondary}30`};
   padding: 10px 15px;
   margin-bottom: 8px;
   cursor: pointer;
