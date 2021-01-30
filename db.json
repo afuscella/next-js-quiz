@@ -1,28 +1,84 @@
 {
   "bg": "https://github.com/afuscella/bitter-brewing-quiz/blob/master/assets/background.jpg?raw=true",
-  "title": "Quiz CSS da Alura",
-  "description": "Teste os seus conhecimentos sobre CSS e vamos ver quantos layouts você vai deixar de quebrar",
+  "loading": "https://media.giphy.com/media/QxZGUVDlUSf6AXv1B9/giphy.gif",
+  "title": "Breja Quiz | Happy Hour Alura",
+  "description": "Bora testar seus conhecimentos e descobrir o seu nível etílico perante aos deuses cervejeiros!",
   "questions": [
     {
-      "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
-      "title": "Como fazer um seletor por id via CSS?",
-      "description": "Essa é pra aquecer",
-      "answer": 2,
+      "image": "https://media.giphy.com/media/l3c5RJr6yRKyyIw00/giphy.gif",
+      "title": "Quais são as três famílias de cervejas?",
+      "description": "Essa é pra encher o copo.",
+      "answer": 0,
       "alternatives": [
-        ".elemento",
-        "*elemento",
-        "#elemento",
-        "%elemento"
+        "Lager, Ale e Lambic.",
+        "Stout, Abadia e Pilsen.",
+        "Clara, Escura, Turva."
       ]
     },
     {
-      "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-      "title": "Como fazer um background gradiente com css?",
-      "description": "Faz tempo em haha",
+      "image": "https://media.giphy.com/media/zrj0yPfw3kGTS/giphy.gif",
+      "title": "A lei da pureza conhecida como Reinheitsgebot, institui que a cerveja deve ser fabricada apenas com...",
+      "description": "Essa também é pra encher o copo.",
+      "answer": 1,
+      "alternatives": [
+        "Água, açafrão, lúpulo.",
+        "Água, malte e lúpulo.",
+        "Açúcar, tempero e tudo que há de bom."
+      ]
+    },
+    {
+      "image": "https://media.giphy.com/media/3ohzdHa8nODi4IWIww/giphy.gif",
+      "title": "São estilos de cervejas.",
+      "description": "Bom, já está ficando repetitivo.",
+      "answer": 2,
+      "alternatives": [
+        "Trapista, Franciscana e Joãozista.",
+        "Lager, Champenoise e Dry Hopping.",
+        "Russian Imperial Stout, Amerian Wheat e Dortmunder Export."
+      ]
+    },
+    {
+      "image": "https://media.giphy.com/media/l2JJNISY3AgGENJzq/giphy.gif",
+      "title": "De acordo com pesquisa realizada pela empresa Barth-Hass Group, qual país é o maior consumidor de cerveja no mundo.",
+      "description": "Dica: Não é o Brasil.",
+      "answer": 1,
+      "alternatives": [
+        "Brasil",
+        "República Tcheca",
+        "Alemanha"
+      ]
+    },
+    {
+      "image": "https://media.giphy.com/media/l2JJNISY3AgGENJzq/giphy.gif",
+      "title": "Qual estilo de cerveja mais consumido no mundo.",
+      "description": "Dica: Também não é o Brasil, ou Lager, ok?",
       "answer": 0,
       "alternatives": [
-        "background: linear-gradient(#e66465, #9198e5);",
-        "background: gradient(#e66465, #9198e5);"
+        "Pilsen",
+        "Lager",
+        "Vienna Lager"
+      ]
+    },
+    {
+      "image": "https://media.giphy.com/media/l2JJNISY3AgGENJzq/giphy.gif",
+      "title": "Quantos estilos de cerveja existem.",
+      "description": "Podem ser muitos como podem ser poucos.",
+      "answer": 1,
+      "alternatives": [
+        "Mais de 10.",
+        "Mais de 100.",
+        "Mais de 1000."
+      ]
+    },
+    {
+      "image": "https://media.giphy.com/media/l2JJNISY3AgGENJzq/giphy.gif",
+      "title": "Qual a diferença entre chop e cerveja?",
+      "description": "Eis a questão.",
+      "answer": 2,
+      "alternatives": [
+        "O chope é consideravelmente mais leve que a cerveja.",
+        "O liquido é o mesmo, porém, a cerveja não passa pelo processo de pasteurização.",
+        "O liquido é o mesmo, porém, o chop não passa pelo processo de pasteurização."
       ]
     }
   ],
@@ -31,13 +87,14 @@
   ],
   "theme": {
     "colors": {
-      "primary": "#fe7f2d",
-      "secondary": "#ff5400",
-      "mainBg": "#fcca46",
+      "primary": "#ffb600",
+      "secondary": "#ff6d00",
+      "mainBg": "#ffb600",
       "contrastText": "#fff",
-      "wrong": "#FF5722",
+      "inverseText": "#000",
+      "wrong": "#f94144",
       "success": "#4CAF50"
     },
-    "borderRadius": "4px"
+    "borderRadius": "8px"
   }
 }
