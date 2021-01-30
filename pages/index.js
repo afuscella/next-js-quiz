@@ -28,11 +28,15 @@ export default function Home() {
         <QuizLogo />
         <Widget>
           <Widget.Header>
-            <h1>{db.title}</h1>
+            <h1>
+              {db.title}
+              {' '}
+              &#128075;
+            </h1>
           </Widget.Header>
 
           <Widget.Content>
-            <p>{db.description}</p>
+            <p style={{ lineHeight: 'normal' }}>{db.description}</p>
             <form onSubmit={handleFormSubmit}>
 
               <Input
@@ -43,7 +47,7 @@ export default function Home() {
               />
 
               <Button type="submit" disabled={!name.length}>
-                BRINDAR PARA COMEÇAR
+                &#127867; BRINDAR PARA COMEÇAR &#127867;
               </Button>
 
             </form>

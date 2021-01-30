@@ -43,7 +43,7 @@ export default function App({ Component, pageProps }) {
         <meta property="og:url" content="https://bitter-brewing-quiz.afuscella.vercel.app/" key="ogurl" />
         <meta property="og:type" content="website" key="ogtype" />
         <meta property="og:title" content="Breja Quiz | Happy Hour Alura" key="ogtitle" />
-        <meta property="og:description" content="Acha que sabe tudo sobre cervejas, então venha se embebedar com estas perguntas marotissimas que reservei pra você." key="ogdesc" />
+        <meta property="og:description" content="Acha que sabe tudo sobre cervejas, então venha se embebedar com este quiz cervejeiro que reservei pra você." key="ogdesc" />
         <meta property="og:image" content="https://github.com/afuscella/bitter-brewing-quiz/blob/master/assets/thumbnail.gif?raw=true" key="ogimage" />
 
         {/* Google Fonts */}

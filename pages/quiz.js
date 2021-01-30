@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
 import db from '../db.json';
 
@@ -8,11 +9,35 @@ import QuizLogo from '../src/components/QuizLogo';
 import Widget from '../src/components/Widget';
 import AlternativesForm from '../src/components/AlternativesForm';
 import GitHubCorner from '../src/components/GitHubCorner';
-
 import Button from '../src/components/Button';
 
-function ResultWidget({
+function PointsWidget({
   results
+}) {
+  return (
+    <Widget>
+      <Widget.Footer>
+        <p>
+          Pontuação:
+          {' '}
+          {results.filter((result) => result === true).length === 0 && '0'}
+
+          {results.map((result, index) => (
+            result && (
+              <span key={`result__${index}`}>
+                &#127866;
+              </span>
+            )
+          ))}
+        </p>
+      </Widget.Footer>
+    </Widget>
+  );
+}
+
+function ResultWidget({
+  results,
+  query
 }) {
   return (
     <Widget>
@@ -29,7 +54,7 @@ function ResultWidget({
         </p>
         <ul>
           {results.map((result, index) => (
-            <li key={`result__${result}`}>
+            <li key={`result__${index}`}>
               #
               {index + 1}
               {' '}
@@ -44,14 +69,23 @@ function ResultWidget({
   );
 }
 
-function LoadingWidget() {
+function LoadingWidget({
+  loadingImage
+}) {
   return (
     <Widget>
       <Widget.Header>
         Carregando...
       </Widget.Header>
       <Widget.Content>
-        [Desafio do loading]
+        <img
+          alt="Loading"
+          style={{
+            width: '100%',
+            objectFit: 'cover',
+          }}
+          src={loadingImage}
+        />
       </Widget.Content>
     </Widget>
   );
@@ -91,13 +125,14 @@ function QuestionWidget({
           {question.title}
         </h2>
 
-        <p>
+        <p style={{ fontStyle: 'italic' }}>
           {question.description}
         </p>
 
         <AlternativesForm
           onSubmit={(e) => {
             e.preventDefault();
+            e.target.reset();
 
             setIsQuestionSubmitted(true);
             setTimeout(() => {
@@ -132,21 +167,16 @@ function QuestionWidget({
             );
           })}
 
-          {!isQuestionSubmitted && (
-            <Button type="submit" disabled={!hasAlternativeSelected}>
-              <span style={{
-                textShadowColor: '#000',
-                textShadowOffset: { width: 0.185, height: 0 },
-                textShadowRadius: 1,
-              }}
-              >
-                Confirmar
-              </span>
-            </Button>
-          )}
-
-          {isQuestionSubmitted && isCorrect && <p align="center">Você acertou</p>}
-          {isQuestionSubmitted && !isCorrect && <p align="center">Você errou</p>}
+          <Button type="submit" disabled={!hasAlternativeSelected}>
+            <span style={{
+              textShadowColor: '#000',
+              textShadowOffset: { width: 0.185, height: 0 },
+              textShadowRadius: 1,
+            }}
+            >
+              Confirmar
+            </span>
+          </Button>
         </AlternativesForm>
 
       </Widget.Content>
@@ -161,6 +191,8 @@ const screenStates = {
 };
 
 export default function QuizPage() {
+  const router = useRouter();
+
   const [screenState, setScreenState] = useState(screenStates.LOADING);
   const [results, setResults] = useState([]);
   const totalQuestions = db.questions.length;
@@ -178,7 +210,7 @@ export default function QuizPage() {
   useEffect(() => {
     setTimeout(() => {
       setScreenState(screenStates.QUIZ);
-    }, 1 * 1000);
+    }, 4 * 1000);
   }, []);
 
   function handleSubmitQuestion() {
@@ -190,24 +222,42 @@ export default function QuizPage() {
     }
   }
 
+  function handleRestartTest(e) {
+    e.preventDefault();
+    router.push('/');
+  }
+
   return (
     <QuizBackground backgroundImage={db.bg}>
       <QuizContainer>
         <QuizLogo />
 
         {screenState === screenStates.QUIZ && (
-          <QuestionWidget
-            question={question}
-            questionIndex={questionIndex}
-            totalQuestions={totalQuestions}
-            onSubmit={handleSubmitQuestion}
-            addResult={addResult}
-          />
+          <>
+            <QuestionWidget
+              question={question}
+              questionIndex={questionIndex}
+              totalQuestions={totalQuestions}
+              onSubmit={handleSubmitQuestion}
+              addResult={addResult}
+            />
+
+            <PointsWidget results={results} />
+          </>
         )}
 
-        {screenState === screenStates.LOADING && <LoadingWidget />}
+        {screenState === screenStates.LOADING && <LoadingWidget loadingImage={db.loading} />}
 
-        {screenState === screenStates.RESULT && <ResultWidget results={results} />}
+        {screenState === screenStates.RESULT && (
+          <>
+            <ResultWidget results={results} query={router.query} />
+            <form onSubmit={handleRestartTest}>
+              <Button type="submit">
+                REFAZER O TESTE
+              </Button>
+            </form>
+          </>
+        )}
 
       </QuizContainer>
       <GitHubCorner projectUrl="https://github.com/afuscella" />
