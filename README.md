@@ -64,3 +64,9 @@ Access https://vercel.com/, and signup with `GitHub`.
 Connect your account with in order to have all repositories sync with `Versel`.
 
 Choose your `next.js` project, and hit deploy. **done**, pretty tough uhn?
+
+
+#### Useful links
+
+[Server Side Rendering](
+https://nextjs.org/docs/basic-features/data-fetching#getserversideprops-server-side-rendering)

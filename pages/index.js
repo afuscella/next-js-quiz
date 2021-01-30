@@ -12,6 +12,7 @@ import GitHubCorner from '../src/components/GitHubCorner';
 
 import Input from '../src/components/Input';
 import Button from '../src/components/Button';
+import Link from '../src/components/Link';
 
 export default function Home() {
   const [name, setName] = useState('');
@@ -58,7 +59,30 @@ export default function Home() {
           <Widget.Content>
             <h1>Quiz da Galera</h1>
 
-            <p>lorem ipsum dolor sit amet...</p>
+            {db.external.map((extern, index) => {
+              const [projectName, gitHubUser] = extern
+                .replace(/\//g, '')
+                .replace('https:', '')
+                .replace('.vercel.app', '')
+                .split('.');
+
+              return (
+                // eslint-disable-next-line react/no-array-index-key
+                <p key={extern}>
+                  <Widget.Topic
+                    as={Link}
+                    href={`/quiz/${projectName}___${gitHubUser}`}
+                    disabled={!name.length}
+                  >
+                    {projectName}
+                    {' / '}
+                    <b>
+                      {gitHubUser}
+                    </b>
+                  </Widget.Topic>
+                </p>
+              );
+            })}
           </Widget.Content>
         </Widget>
 

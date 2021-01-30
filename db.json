@@ -1,6 +1,6 @@
 {
   "bg": "https://github.com/afuscella/bitter-brewing-quiz/blob/master/assets/background.jpg?raw=true",
-  "loading": "https://media.giphy.com/media/QxZGUVDlUSf6AXv1B9/giphy.gif",
+  "loadingImage": "https://media.giphy.com/media/QxZGUVDlUSf6AXv1B9/giphy.gif",
   "title": "Breja Quiz | Happy Hour Alura",
   "description": "Bora testar seus conhecimentos e descobrir o seu nível etílico perante aos deuses cervejeiros!",
   "questions": [
@@ -83,7 +83,10 @@
     }
   ],
   "external": [
-    ""
+    "https://quiz-justiceleague.levi-magny.vercel.app/",
+    "https://quiz-contemplese.ricardoltt.vercel.app/",
+    "https://doctor-who-quiz.emanuelpna.vercel.app/"
+
   ],
   "theme": {
     "colors": {
