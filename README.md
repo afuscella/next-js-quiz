@@ -60,6 +60,16 @@ $ yarn dev
 ```
 
 
+#### Deploy
+
+Access https://vercel.com/, and signup with `GitHub`.
+
+Connect your account with in order to have all repositories sync with `Versel`.
+
+Choose your `next.js` project, and hit deploy. **done**, pretty tough uhn?
+
+
+
 ## Animations
 
 see more at [Framer Motion - ready motion libraries for React](https://www.framer.com/motion/)
@@ -70,15 +80,6 @@ see more at [Framer Motion - ready motion libraries for React](https://www.frame
 ```
 yarn add framer-motion
 ```
-
-
-#### Deploy
-
-Access https://vercel.com/, and signup with `GitHub`.
-
-Connect your account with in order to have all repositories sync with `Versel`.
-
-Choose your `next.js` project, and hit deploy. **done**, pretty tough uhn?
 
 
 ## Useful links
