@@ -3,6 +3,8 @@ Quiz App based on Next js
 
 _Do you like beer? A real in the jar for each wrong answer._
 
+![Screenshot-01](public/img-01.png)
+
 ## Summary
 
 - [Templates](#templates)
