@@ -1,3 +1,4 @@
+// src/components/Widget/index.js
 import styled from 'styled-components';
 
 const Widget = styled.div`

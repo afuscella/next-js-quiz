@@ -1,3 +1,4 @@
+// src/components/QuizContainer/index.js
 import styled from 'styled-components';
 
 const QuizContainer = styled.div`

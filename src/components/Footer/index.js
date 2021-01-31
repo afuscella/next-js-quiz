@@ -1,3 +1,4 @@
+// src/components/Footer/index.js
 import React from 'react';
 import styled from 'styled-components';
 

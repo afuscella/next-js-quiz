@@ -6,6 +6,7 @@ import db from '../../db.json';
 import QuizBackground from '../../src/components/QuizBackground';
 import QuizContainer from '../../src/components/QuizContainer';
 import QuizLogo from '../../src/components/QuizLogo';
+import QuizResult from '../../src/components/QuizResult';
 import Widget from '../../src/components/Widget';
 import AlternativesForm from '../../src/components/AlternativesForm';
 import GitHubCorner from '../../src/components/GitHubCorner';
@@ -36,73 +37,14 @@ function PointsWidget({
   );
 }
 
-function ResultWidget({
-  results,
-  name,
-  handleRetakeTest,
-}) {
-  const totalCorrectAnwers = results.filter((result) => result === true).length;
-
-  function handleScoreCategory(score) {
-    if (score === 7) {
-      return 'MESTRE CERVEJEIRO';
-    }
-
-    if (score > 3 && score < 7) {
-      return 'CERVEJEIRO';
-    }
-
-    return 'CERVEJEIRO MIRIM';
-  }
-
-  return (
-    <Widget>
-      <Widget.Header>
-        {`${name}, você é ...`}
-        {' '}
-        <b>
-          {handleScoreCategory(totalCorrectAnwers)}
-        </b>
-      </Widget.Header>
-      <Widget.Content>
-        <p>
-          Você acertou
-          {' '}
-          {totalCorrectAnwers}
-          {' '}
-          de perguntas
-          {' '}
-          {results.length}
-        </p>
-        <ul>
-          {results.map((result, index) => (
-            <li key={`result__${index}`}>
-              #
-              {index + 1}
-              {' '}
-              resultado:
-              {' '}
-              {result === true ? 'Acertou' : 'Errou'}
-            </li>
-          ))}
-        </ul>
-        <form onSubmit={handleRetakeTest}>
-          <Button type="submit">
-            REFAZER O TESTE
-          </Button>
-        </form>
-      </Widget.Content>
-    </Widget>
-  );
-}
-
 function LoadingWidget({
-  loadingImage,
+  text,
+  image
 }) {
   return (
     <Widget>
       <Widget.Header>
-        Carregando...
+        {text}
       </Widget.Header>
       <Widget.Content>
         <img
@@ -111,7 +53,7 @@ function LoadingWidget({
             width: '100%',
             objectFit: 'cover',
           }}
-          src={loadingImage}
+          src={image}
         />
       </Widget.Content>
     </Widget>
@@ -225,6 +167,7 @@ export default function QuizPage({ name }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const questionIndex = currentQuestion;
   const question = db.questions[currentQuestion];
+  const { questions } = db;
 
   const router = useRouter();
 
@@ -246,7 +189,10 @@ export default function QuizPage({ name }) {
     if (nextQuestion < totalQuestions) {
       setCurrentQuestion(questionIndex + 1);
     } else {
-      setScreenState(screenStates.RESULT);
+      setScreenState(screenStates.LOADING);
+      setTimeout(() => {
+        setScreenState(screenStates.RESULT);
+      }, 4 * 1000);
     }
   }
 
@@ -273,12 +219,18 @@ export default function QuizPage({ name }) {
           </>
         )}
 
-        {screenState === screenStates.LOADING && <LoadingWidget loadingImage={db.loadingImage} />}
+        {screenState === screenStates.LOADING && (
+          <LoadingWidget
+            text="Carregando... só um segundinho chefia."
+            image={db.loadingImage}
+          />
+        )}
 
         {screenState === screenStates.RESULT && (
           <>
-            <ResultWidget
+            <QuizResult
               results={results}
+              questions={questions}
               name={name}
               handleRetakeTest={handleRetakeTest}
             />

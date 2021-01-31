@@ -1,3 +1,4 @@
+// src/components/AlternativesForm/index.js
 import styled from 'styled-components';
 
 const AlternativesForm = styled.form`
