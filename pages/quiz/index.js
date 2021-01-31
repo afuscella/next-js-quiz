@@ -38,20 +38,41 @@ function PointsWidget({
 
 function ResultWidget({
   results,
-  query,
+  name,
+  handleRetakeTest,
 }) {
+  const totalCorrectAnwers = results.filter((result) => result === true).length;
+
+  function handleScoreCategory(score) {
+    if (score === 7) {
+      return 'MESTRE CERVEJEIRO';
+    }
+
+    if (score > 3 && score < 7) {
+      return 'CERVEJEIRO';
+    }
+
+    return 'CERVEJEIRO MIRIM';
+  }
+
   return (
     <Widget>
       <Widget.Header>
-        Suas respostas:
+        {`${name}, você é ...`}
+        {' '}
+        <b>
+          {handleScoreCategory(totalCorrectAnwers)}
+        </b>
       </Widget.Header>
       <Widget.Content>
         <p>
           Você acertou
           {' '}
-          {results.filter((result) => result === true).length}
+          {totalCorrectAnwers}
           {' '}
-          perguntas.
+          de perguntas
+          {' '}
+          {results.length}
         </p>
         <ul>
           {results.map((result, index) => (
@@ -65,6 +86,11 @@ function ResultWidget({
             </li>
           ))}
         </ul>
+        <form onSubmit={handleRetakeTest}>
+          <Button type="submit">
+            REFAZER O TESTE
+          </Button>
+        </form>
       </Widget.Content>
     </Widget>
   );
@@ -192,15 +218,15 @@ const screenStates = {
   RESULT: 'RESULT',
 };
 
-export default function QuizPage() {
-  const router = useRouter();
-
+export default function QuizPage({ name }) {
   const [screenState, setScreenState] = useState(screenStates.LOADING);
   const [results, setResults] = useState([]);
   const totalQuestions = db.questions.length;
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const questionIndex = currentQuestion;
   const question = db.questions[currentQuestion];
+
+  const router = useRouter();
 
   function addResult(result) {
     setResults([
@@ -224,7 +250,7 @@ export default function QuizPage() {
     }
   }
 
-  function handleRestartTest(e) {
+  function handleRetakeTest(e) {
     e.preventDefault();
     router.push('/');
   }
@@ -251,12 +277,11 @@ export default function QuizPage() {
 
         {screenState === screenStates.RESULT && (
           <>
-            <ResultWidget results={results} query={router.query} />
-            <form onSubmit={handleRestartTest}>
-              <Button type="submit">
-                REFAZER O TESTE
-              </Button>
-            </form>
+            <ResultWidget
+              results={results}
+              name={name}
+              handleRetakeTest={handleRetakeTest}
+            />
           </>
         )}
 
@@ -264,4 +289,13 @@ export default function QuizPage() {
       <GitHubCorner projectUrl="https://github.com/afuscella" />
     </QuizBackground>
   );
+}
+
+export async function getServerSideProps(context) {
+  const { name } = context.query;
+  return {
+    props: {
+      name,
+    },
+  };
 }
