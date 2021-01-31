@@ -102,7 +102,6 @@ function QuestionWidget({
         <AlternativesForm
           onSubmit={(e) => {
             e.preventDefault();
-            e.target.reset();
 
             setIsQuestionSubmitted(true);
             setTimeout(() => {
@@ -130,6 +129,7 @@ function QuestionWidget({
                   id={alternativeId}
                   name={questionId}
                   onChange={() => setSelectedAlternative(alternativeIndex)}
+                  checked={false}
                   type="radio"
                 />
                 {alternative}
