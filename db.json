@@ -92,7 +92,7 @@
     "colors": {
       "primary": "#ffb600",
       "secondary": "#ff6d00",
-      "mainBg": "#ffb600",
+      "mainBg": "#ff6d00",
       "contrastText": "#fff",
       "inverseText": "#000",
       "wrong": "#f94144",
