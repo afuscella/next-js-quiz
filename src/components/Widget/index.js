@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Widget = styled.div`
   margin-top: 24px;
   margin-bottom: 24px;
-  border: 2px solid ${({ theme }) => theme.colors.primary};
+  border: 2px solid ${({ theme }) => theme.colors.mainBg};
   background-color: ${({ theme }) => `${theme.colors.mainBg}40`};
   border-radius: 8px;
   overflow: hidden;
@@ -19,7 +19,7 @@ const Widget = styled.div`
     line-height: 1;
   }
   @media screen and (max-width: 500px) {
-    background-color: ${({ theme }) => theme.colors.mainBg};
+    background-color: ${({ theme }) => `${theme.colors.primary}FF`};
   }
 `;
 
@@ -28,7 +28,7 @@ Widget.Header = styled.header`
   justify-content: flex-start;
   align-items: center;
   padding: 18px 32px;
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.mainBg};
   * {
     margin: 0;
   }
@@ -46,13 +46,16 @@ Widget.Content = styled.div`
     list-style: none;
     padding: 0;
   }
+  @media screen and (max-width: 500px) {
+    background-color: ${({ theme }) => `${theme.colors.mainBg}60`};
+  }
 `;
 
 Widget.Topic = styled.a`
   outline: 0;
   text-decoration: none;
   color: ${({ theme }) => theme.colors.contrastText};
-  background-color: ${({ theme }) => `${theme.colors.secondary}30`};
+  background-color: ${({ theme }) => `${theme.colors.mainBg}40`};
   padding: 10px 15px;
   margin-bottom: 8px;
   cursor: pointer;
@@ -71,7 +74,7 @@ Widget.Footer = styled.footer`
   justify-content: flex-start;
   align-items: center;
   padding: 18px 32px;
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.mainBg};
   * {
     margin: 0;
   }
