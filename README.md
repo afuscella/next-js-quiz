@@ -26,9 +26,11 @@ _Do you like beer? A real in the jar for each wrong answer._
 Templates by `Vercel` are available at https://github.com/vercel/next.js/
 
 
-#### Style Components Template
+#### create project with `styled-components` template
 
-- npx create-next-app --example with-styled-components with-styled-components-app
+```
+$ yarn create next-app --example with-styled-components with-styled-components-app
+```
 
 _see more at [Styled Components](https://styled-components.com/)_
 
@@ -40,14 +42,6 @@ _see more at [Styled Components](https://styled-components.com/)_
 - color pallete customization <br />
   https://material-ui.com/customization/color/#playground
 
-
-#### Creating a project 
-
-Run `npx` by using `styled-components` template.
-
-```
-$ npx create-next-app --example with-styled-components
-```
 
 
 ## Coding
