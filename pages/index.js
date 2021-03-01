@@ -27,10 +27,10 @@ export default function Home() {
   return (
     <QuizBackground backgroundImage={db.bg}>
       <QuizContainer>
-        <QuizLogo />
+
         <Widget
           as={motion.section}
-          transition={{ delay: 0, duration: 0.5 }}
+          transition={{ delay: 0, duration: 1 }}
           variants={{
             show: { opacity: 1, y: '0' },
             hidden: { opacity: 0, y: '100%' },

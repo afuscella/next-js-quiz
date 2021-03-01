@@ -39,7 +39,7 @@ function PointsWidget({
 
 function LoadingWidget({
   text,
-  image
+  image,
 }) {
   return (
     <Widget>

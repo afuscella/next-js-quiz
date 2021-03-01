@@ -29,12 +29,11 @@ const GlobalStyle = createGlobalStyle`
 
 const { theme } = db;
 
-// eslint-disable-next-line react/prop-types
 export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Breja Quiz | Happy Hour Alura</title>
+        <title>Breja Quiz | Happy Hour</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
         <meta name="description" content="Acha que sabe tudo sobre cervejas, então venha se embebedar com estas perguntas marotissimas que reservei pra você." />
@@ -42,7 +41,7 @@ export default function App({ Component, pageProps }) {
         {/* Facebook Meta Tags */}
         <meta property="og:url" content="https://bitter-brewing-quiz.afuscella.vercel.app/" key="ogurl" />
         <meta property="og:type" content="website" key="ogtype" />
-        <meta property="og:title" content="Breja Quiz | Happy Hour Alura" key="ogtitle" />
+        <meta property="og:title" content="Breja Quiz | Happy Hour" key="ogtitle" />
         <meta property="og:description" content="Acha que sabe tudo sobre cervejas, então venha se embebedar com este quiz cervejeiro que reservei pra você." key="ogdesc" />
         <meta property="og:image" content="https://github.com/afuscella/bitter-brewing-quiz/blob/master/public/thumbnail.gif?raw=true" key="ogimage" />
 

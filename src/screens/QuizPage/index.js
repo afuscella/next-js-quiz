@@ -172,7 +172,7 @@ const screenStates = {
 export default function QuizPage({
   questions,
   bg,
-  loadingImage
+  loadingImage,
 }) {
   const router = useRouter();
 
